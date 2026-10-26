@@ -1,0 +1,5 @@
+index=main host="WIN-CLIENT01"
+source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+EventID=3 DestinationIp="127.0.0.1" DestinationPort=8765
+| table _time Image ProcessId DestinationIp DestinationPort
+| sort 0 _time

@@ -1,0 +1,8 @@
+index=main host="WIN-CLIENT01"
+(
+    source="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational"
+    OR source="XmlWinEventLog:Microsoft-Windows-PowerShell/Operational"
+)
+("127.0.0.1" OR "8765" OR "SOC002_SIMULATED_POST_CLICK_ACTIVITY")
+| table _time source EventID Image ProcessId DestinationIp DestinationPort ScriptBlockText
+| sort 0 _time

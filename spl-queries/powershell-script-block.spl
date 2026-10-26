@@ -1,0 +1,5 @@
+index=main host="WIN-CLIENT01"
+source="XmlWinEventLog:Microsoft-Windows-PowerShell/Operational"
+EventID=4104 "SOC002_SIMULATED_POST_CLICK_ACTIVITY"
+| table _time EventID ScriptBlockText
+| sort 0 _time
